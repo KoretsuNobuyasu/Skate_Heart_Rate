@@ -14,6 +14,7 @@ work/log/*
 !work/data/interim/tableau_pipeline/.gitkeep
 !work/data/original/.gitkeep
 !work/data/original_pkl/.gitkeep
+!project/config/.gitkeep
 work/docs/*
 work/tmp/*
 !work/.gitkeep
