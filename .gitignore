@@ -2,6 +2,8 @@
 .git/*
 .idea/*
 *.swap
+*.json
+*.csv
 work/notebooks/.ipynb_checkpoints/*
 work/notebooks/images
 work/data/*
