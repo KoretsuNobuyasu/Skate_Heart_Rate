@@ -4,7 +4,7 @@ import os.path
 import resource
 
 path = Path(os.path.dirname(__file__))
-PROJ_ROOT = str(path)+'/work'
+PROJ_ROOT = str(path)+'/project'
 DATA = PROJ_ROOT+'/data'
 ORIGINAL_DATA = DATA+'/original'
 ORIGINAL_PKL_DATA = DATA+'/original_pkl'
@@ -21,35 +21,6 @@ IMAGES = FILE+'/images'
 CONFIG = PROJ_ROOT+'/config'
 LOG = PROJ_ROOT+'/log'
 
-
-# Azure
-VINX_TENANT_ID = '7548cda1-bbc4-49b3-9b2e-e8fd833b194f'
-VINX_COMPUTING = 'SS-Customer-Forecast001'
-VINX_CONFIG_PATH = CONFIG+'/vinx_config.json'
-VINX_DL_PATH = DATA+'/azure_dl_vinx'
-DS_TENANT_ID = '81b42203-f41c-440c-a3e9-6d8cdf736701'
-DS_COMPUTING = 'vinx-datum-cp01'
-DS_CONFIG_PATH = CONFIG+'/config.json'
-DS_DL_PATH = DATA+'/azure_dl_ds'
-
-AML_WEATHER_DEV = './dev_input_data/daiei/WEATHER'
-AML_STORE_DEV = './dev_input_data/daiei/MA_TENPO'
-AML_VISITOR_DEV = './dev_input_data/daiei/DT_ACTUAL_KYAKU'
-
-PIPELINE_STEPS = PROJ_ROOT+'/pipeline_steps'
-
-# Wheels
-WHL_VINX_AZURE_ML= LIB+'/vinx_azure/dist/vinx_azure_ml-0.0.8-py3-none-any.whl'
-
-sys.path = list(set(sys.path))
-sys.path.append(LIB)
-sys.path.append(DATASOURCE)
-sys.path.append(DATASOURCE+'/interim')
-sys.path.append(DATASOURCE+'/original')
-sys.path.append(DATASOURCE+'/other')
-sys.path.append(SRC)
-sys.path.append(SRC+'/azure_src')
-sys.path.append(LIB+'/vinx_azure/vinx_azure_ml')
 
 def get_info(target_df):
     max_row = len(target_df)
