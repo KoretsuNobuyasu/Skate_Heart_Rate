@@ -19,19 +19,14 @@ def _get_year():
         raise ValueError('You need enter int64.')
     return year
 
-
-def _token_parse(command_response):
-    print(command_response)
-
-
 def _get_client_info(client_id, client_secret):
-    command = ['python-fitbit/gather_keys_oauth2.py', client_id, client_secret]
+    command = ['./project/python-fitbit/gather_keys_oauth2.py', client_id, client_secret]
     command_response = subprocess.check_output(command)
-    access_token, refresh_token = token_parse(command_response)
+    access_token, refresh_token = _token_parse(command_response)
     return access_token, refresh_token
 
 
-def token_parse(command_response):
+def _token_parse(command_response):
     command_response = str(command_response)
     command_response = command_response.split('access_token =')[1]
     access_token = command_response.split('\\nexpires_in')[0].replace(' ', '')
@@ -42,15 +37,15 @@ def token_parse(command_response):
 
 def to_json(name, year, client_info):
     option = {'Name': name, 'Year': year, 'Client_Info': client_info}
-    json_file = (f'./config/option_data.json')
+    json_file = (f'./project/config/option_data.json')
     with open(json_file, 'w') as f:
         json.dump(option, f, indent=4)
 
 
-def read_json():
-    json_file = open('./config/option_data.json', 'r')
-    json_object = json.load(json_file)
-    print(json_object)
+# def read_json():
+#     json_file = open('./config/option_data.json', 'r')
+#     json_object = json.load(json_file)
+#     print(json_object)
 
 
 def main():
@@ -58,7 +53,7 @@ def main():
     reuse = input('do you want reuse before info(user, year, client_id, client_secret)?? \n Please enter yes or no>>> ').upper().lower()
     if reuse == 'yes':
         # name, year, client_info
-        before_info = read_json()
+        pass
     else:
         name = _get_name()
         year = _get_year()

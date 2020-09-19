@@ -1,0 +1,13 @@
+version: "2"
+services:
+  project:
+    container_name: project
+    image: nobudev/project:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8010:8888"
+      - "10010:22"
+    volumes:
+      - "~/Skate_Heart_Rate_Project/skate_heartrate_project:/home/dev/projects/project"
